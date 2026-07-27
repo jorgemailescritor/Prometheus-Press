@@ -1,10 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+
+    /* =========================
+       MENU PRINCIPAL MOBILE
+    ========================= */
+
     const menuToggle =
         document.querySelector(".menu-toggle");
 
     const mainNav =
         document.querySelector(".main-nav");
+
 
     if (menuToggle && mainNav) {
 
@@ -17,6 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
+
+
+    /* =========================
+       SUBMENUS (delegação de evento)
+    ========================= */
 
     document.addEventListener("click", function (event) {
 
@@ -50,6 +61,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+
+    /* =========================
+       FECHAR AO CLICAR FORA
+    ========================= */
+
     document.addEventListener("click", function (event) {
 
         if (event.target.closest(".nav-item")) {
@@ -65,5 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
     });
+
 
 });
