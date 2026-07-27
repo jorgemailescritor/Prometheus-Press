@@ -4,1282 +4,2695 @@
    ========================================================= */
 
 
+/* =========================================================
+   1. FONTES
+   ========================================================= */
+
+@font-face {
+
+    font-family: "Cinzel";
+
+    src: url("../Assets/Fonts/Display/Cinzel/Cinzel-Regular.ttf");
+
+    font-weight: 400;
+
+    font-style: normal;
+
+}
 
 
+@font-face {
+
+    font-family: "Cinzel";
+
+    src: url("../Assets/Fonts/Display/Cinzel/Cinzel-Medium.ttf");
+
+    font-weight: 500;
+
+    font-style: normal;
+
+}
 
 
+@font-face {
+
+    font-family: "Cinzel";
+
+    src: url("../Assets/Fonts/Display/Cinzel/Cinzel-SemiBold.ttf");
+
+    font-weight: 600;
+
+    font-style: normal;
+
+}
 
 
+@font-face {
+
+    font-family: "Montserrat";
+
+    src: url("../Assets/Fonts/Sans/Montserrat/Montserrat-Regular.ttf");
+
+    font-weight: 400;
+
+    font-style: normal;
+
+}
 
 
+@font-face {
+
+    font-family: "Montserrat";
+
+    src: url("../Assets/Fonts/Sans/Montserrat/Montserrat-Medium.ttf");
+
+    font-weight: 500;
+
+    font-style: normal;
+
+}
+
+
+@font-face {
+
+    font-family: "Montserrat";
+
+    src: url("../Assets/Fonts/Sans/Montserrat/Montserrat-SemiBold.ttf");
+
+    font-weight: 600;
+
+    font-style: normal;
+
+}
+
+
+@font-face {
+
+    font-family: "Montserrat";
+
+    src: url("../Assets/Fonts/Sans/Montserrat/Montserrat-Bold.ttf");
+
+    font-weight: 700;
+
+    font-style: normal;
+
+}
+
+
+@font-face {
+
+    font-family: "Cormorant Garamond";
+
+    src: url("../Assets/Fonts/Serif/Cormorant_Garamond/CormorantGaramond-Regular.ttf");
+
+    font-weight: 400;
+
+    font-style: normal;
+
+}
+
+
+@font-face {
+
+    font-family: "Cormorant Garamond";
+
+    src: url("../Assets/Fonts/Serif/Cormorant_Garamond/CormorantGaramond-Italic.ttf");
+
+    font-weight: 400;
+
+    font-style: italic;
+
+}
+
+
+@font-face {
+
+    font-family: "Cormorant Garamond";
+
+    src: url("../Assets/Fonts/Serif/Cormorant_Garamond/CormorantGaramond-SemiBold.ttf");
+
+    font-weight: 600;
+
+    font-style: normal;
+
+}
+
+
+/* =========================================================
+   2. VARIÁVEIS
+   ========================================================= */
 
 :root {
+
     --black: #090909;
+
     --black-soft: #111111;
+
     --black-light: #181818;
+
     --paper: #e8e1d4;
+
     --paper-dark: #bcb3a4;
+
     --gold: #b99a5f;
+
     --red: #8e1d1d;
+
     --red-dark: #5d1111;
+
+
     --font-display: "Cinzel", serif;
+
     --font-serif: "Cormorant Garamond", serif;
+
     --font-sans: "Montserrat", sans-serif;
+
+
     --section-padding: 110px;
+
 }
+
+
+/* =========================================================
+   3. RESET
+   ========================================================= */
 
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
 }
+
 
 html {
+
     scroll-behavior: smooth;
+
 }
+
 
 body {
+
     background: var(--black);
+
     color: var(--paper);
+
     font-family: var(--font-sans);
+
     line-height: 1.6;
+
 }
+
 
 img {
+
     max-width: 100%;
+
     display: block;
+
 }
+
 
 a {
+
     color: inherit;
+
     text-decoration: none;
+
 }
 
+
 button {
+
     font: inherit;
+
 }
+
+
+/* =========================================================
+   4. CONTAINERS
+   ========================================================= */
 
 .container,
 .section-container {
+
     width: min(1200px, 90%);
+
     margin: 0 auto;
+
 }
 
+
+/* =========================================================
+   5. HEADER
+   ========================================================= */
+
 .site-header {
+
     position: absolute;
+
     top: 0;
+
     left: 0;
+
     width: 100%;
+
     min-height: 90px;
+
     z-index: 100;
-    border-bottom: 1px solid rgba(232, 225, 212, 0.15);
+
+    border-bottom: 1px solid
+        rgba(232, 225, 212, 0.15);
+
 }
 
+
 .site-header {
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     padding: 0 5%;
+
 }
+
+
+/* =========================================================
+   6. LOGO
+   ========================================================= */
 
 .logo {
+
     display: flex;
+
     flex-direction: column;
+
     flex-shrink: 0;
+
     font-family: var(--font-display);
+
     font-size: 1.15rem;
+
     line-height: 1;
+
     letter-spacing: 0.12em;
+
 }
+
 
 .logo span {
+
     margin-top: 7px;
+
     color: var(--gold);
+
     font-size: 0.6rem;
+
     letter-spacing: 0.45em;
+
 }
 
+
+/* =========================================================
+   7. MENU PRINCIPAL
+   ========================================================= */
+
 .main-nav {
+
     display: flex;
+
     align-items: center;
+
     gap: clamp(16px, 2vw, 30px);
+
 }
+
 
 .main-nav > a,
 .submenu-toggle {
+
     color: var(--paper-dark);
+
     font-family: var(--font-sans);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.10em;
+
     text-transform: uppercase;
+
     white-space: nowrap;
+
     transition: color 0.3s ease;
+
 }
+
 
 .main-nav > a:hover,
 .main-nav > a.active,
 .submenu-toggle:hover {
+
     color: var(--gold);
+
 }
+
+
+/* =========================================================
+   8. SUBMENUS
+   ========================================================= */
 
 .nav-item {
+
     position: relative;
+
 }
+
 
 .submenu-toggle {
+
     background: none;
+
     border: none;
+
     cursor: pointer;
+
 }
+
 
 .submenu-toggle span {
+
     margin-left: 6px;
+
     color: var(--gold);
+
 }
+
 
 .submenu {
+
     position: absolute;
+
     top: calc(100% + 18px);
+
     left: 0;
+
     z-index: 200;
+
     display: none;
+
     flex-direction: column;
+
     min-width: 210px;
+
     padding: 12px 0;
+
     background: var(--black);
-    border: 1px solid rgba(232, 225, 212, 0.15);
+
+    border: 1px solid
+        rgba(232, 225, 212, 0.15);
+
 }
+
 
 .nav-item.active .submenu {
+
     display: flex;
+
 }
+
 
 .submenu a {
+
     display: block;
+
     padding: 11px 18px;
+
     color: var(--paper-dark);
+
     font-family: var(--font-sans);
+
     font-size: 0.63rem;
+
     letter-spacing: 0.10em;
+
     text-transform: uppercase;
+
     white-space: nowrap;
+
 }
+
 
 .submenu a:hover {
+
     color: var(--gold);
+
 }
 
+
+/* =========================================================
+   9. BOTÃO DO MENU
+   ========================================================= */
+
 .menu-toggle {
+
     display: none;
+
     color: var(--paper);
+
     background: none;
+
     border: none;
+
     font-size: 1.7rem;
+
     cursor: pointer;
+
 }
+
+
+/* =========================================================
+   10. HERO GLOBAL
+   ========================================================= */
 
 .hero,
 .page-hero {
+
     position: relative;
+
     min-height: 100vh;
+
     display: flex;
+
     align-items: center;
+
 }
 
+
 .hero-content {
+
     position: relative;
+
     z-index: 2;
+
     max-width: 760px;
+
     padding-top: 90px;
+
 }
+
 
 .eyebrow,
 .hero-kicker,
 .section-eyebrow {
+
     margin-bottom: 25px;
+
     color: var(--gold);
+
     font-family: var(--font-sans);
+
     font-size: 0.68rem;
+
     letter-spacing: 0.25em;
+
     text-transform: uppercase;
+
 }
+
 
 .hero h1,
 .page-hero h1 {
+
     font-family: var(--font-display);
+
     font-size: clamp(3rem, 8vw, 7rem);
+
     font-weight: 500;
+
     line-height: 1.05;
+
     letter-spacing: 0.03em;
+
 }
+
 
 .hero-subtitle,
 .hero-description {
+
     max-width: 650px;
+
     margin-top: 30px;
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: clamp(1.4rem, 2.5vw, 2rem);
+
     line-height: 1.45;
+
 }
 
+
+/* =========================================================
+   11. HERO DA HOMEPAGE
+   ========================================================= */
+
 .hero {
+
     background:
+
         linear-gradient(
+
             90deg,
+
             rgba(9, 9, 9, 0.98),
+
             rgba(9, 9, 9, 0.80),
+
             rgba(9, 9, 9, 0.35)
+
         ),
+
         url("../Assets/Imagens/Hero/prometheus-torch.webp")
+
         center / cover no-repeat;
+
 }
+
+
+/* =========================================================
+   12. BOTÕES
+   ========================================================= */
 
 .btn,
 .btn-primary {
+
     display: inline-block;
+
     padding: 15px 28px;
+
     color: var(--paper);
+
     border: 1px solid var(--gold);
+
     font-family: var(--font-sans);
+
     font-size: 0.68rem;
+
     letter-spacing: 0.16em;
+
     text-transform: uppercase;
+
     transition: all 0.35s ease;
+
 }
+
 
 .btn:hover,
 .btn-primary:hover {
+
     color: var(--black);
+
     background: var(--gold);
+
 }
+
+
+/* =========================================================
+   13. SEÇÕES
+   ========================================================= */
 
 .section {
+
     padding: var(--section-padding) 0;
+
 }
+
 
 .section h2 {
+
     font-family: var(--font-display);
+
     font-weight: 500;
+
 }
+
+
+/* =========================================================
+   14. MANIFESTO
+   ========================================================= */
 
 .manifesto {
+
     color: var(--black);
+
     background: var(--paper);
+
 }
+
 
 .manifesto h2 {
+
     max-width: 800px;
+
     font-size: clamp(2.5rem, 6vw, 5.5rem);
+
     line-height: 1.05;
+
 }
+
 
 .manifesto-text {
+
     max-width: 680px;
+
     margin-top: 55px;
+
 }
+
 
 .manifesto-text p {
+
     margin-bottom: 18px;
+
     font-family: var(--font-serif);
+
     font-size: clamp(1.4rem, 2.5vw, 2rem);
+
 }
+
 
 .manifesto-text .highlight {
+
     color: var(--red);
+
 }
+
+
+/* =========================================================
+   15. IMPRINTS
+   ========================================================= */
 
 .imprint {
+
     position: relative;
+
     min-height: 620px;
+
     display: flex;
+
     align-items: center;
+
 }
+
 
 .imprint-content {
+
     max-width: 720px;
+
 }
+
 
 .imprint h2 {
+
     font-size: clamp(2.5rem, 6vw, 5.5rem);
+
     line-height: 1.08;
+
 }
+
 
 .imprint p:not(.section-label) {
+
     max-width: 580px;
+
     margin: 30px 0;
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.6rem;
+
 }
+
 
 .imprint-saga {
+
     background:
+
         linear-gradient(
+
             90deg,
+
             rgba(9, 9, 9, 0.95),
+
             rgba(9, 9, 9, 0.55)
+
         ),
+
         url("../Assets/Imagens/Hero/saga-world.webp")
+
         center / cover no-repeat;
+
 }
+
 
 .imprint-pulp {
+
     background:
+
         linear-gradient(
+
             90deg,
+
             rgba(9, 9, 9, 0.95),
+
             rgba(9, 9, 9, 0.55)
+
         ),
+
         url("../Assets/Imagens/Hero/pulp-city.webp")
+
         center / cover no-repeat;
+
 }
+
+
+/* =========================================================
+   16. DESTAQUES
+   ========================================================= */
 
 .featured {
+
     background: var(--black-soft);
+
 }
+
 
 .featured h2 {
+
     max-width: 700px;
+
     margin-bottom: 55px;
+
     font-size: clamp(2.3rem, 5vw, 4.5rem);
+
     line-height: 1.1;
+
 }
+
 
 .book-grid {
+
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 30px;
+
 }
+
 
 .book-card {
+
     background: var(--black-light);
+
     transition: transform 0.35s ease;
+
 }
+
 
 .book-card:hover {
+
     transform: translateY(-8px);
+
 }
+
 
 .book-image {
+
     aspect-ratio: 2 / 3;
+
     overflow: hidden;
+
 }
+
 
 .book-image img {
+
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
 }
+
 
 .book-info {
+
     padding: 25px;
+
 }
+
 
 .book-category {
+
     color: var(--gold);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.18em;
+
 }
 
+
 .book-info h3 {
+
     margin: 12px 0 20px;
+
     font-size: 1.3rem;
+
     font-weight: 500;
+
 }
+
+
+/* =========================================================
+   17. SAGA
+   ========================================================= */
 
 .saga-nav,
 .pulp-nav {
+
     position: absolute;
+
     top: 90px;
+
     left: 0;
+
     width: 100%;
+
     z-index: 20;
-    border-bottom: 1px solid rgba(232, 225, 212, 0.15);
+
+    border-bottom: 1px solid
+        rgba(232, 225, 212, 0.15);
+
 }
+
 
 .saga-nav-inner,
 .pulp-nav-inner {
+
     display: flex;
+
     justify-content: flex-end;
+
     gap: 30px;
+
     padding: 18px 5%;
+
 }
+
 
 .saga-nav a,
 .pulp-nav a {
+
     color: var(--paper-dark);
+
     font-family: var(--font-sans);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.15em;
+
     text-transform: uppercase;
+
     white-space: nowrap;
+
 }
+
 
 .saga-nav a:hover,
 .pulp-nav a:hover {
+
     color: var(--gold);
+
 }
+
 
 .saga-hero {
+
     background:
+
         linear-gradient(
+
             90deg,
+
             rgba(9, 9, 9, 0.98),
+
             rgba(9, 9, 9, 0.70),
+
             rgba(9, 9, 9, 0.30)
+
         ),
+
         url("../Assets/Imagens/Hero/saga-world.webp")
+
         center / cover no-repeat;
+
 }
 
+
 .saga-hero-content {
+
     max-width: 800px;
+
     padding-top: 120px;
+
 }
+
 
 .saga-intro,
 .pulp-intro {
+
     color: var(--black);
+
     background: var(--paper);
+
 }
+
 
 .saga-intro h2,
 .pulp-intro h2 {
+
     max-width: 850px;
+
     font-size: clamp(2.5rem, 6vw, 5rem);
+
     line-height: 1.05;
+
 }
+
 
 .saga-text,
 .pulp-text {
+
     max-width: 700px;
+
     margin-top: 55px;
+
 }
+
 
 .saga-text p,
 .pulp-text p {
+
     margin-bottom: 22px;
+
     font-family: var(--font-serif);
+
     font-size: clamp(1.4rem, 2.5vw, 2rem);
+
 }
+
 
 .saga-works,
 .pulp-works {
+
     background: var(--black-soft);
+
 }
+
 
 .saga-book-grid,
 .pulp-book-grid {
+
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 35px;
+
 }
+
 
 .saga-book-card,
 .pulp-book-card {
+
     background: var(--black-light);
+
     transition: transform 0.35s ease;
+
 }
+
 
 .saga-book-card:hover,
 .pulp-book-card:hover {
+
     transform: translateY(-10px);
+
 }
+
 
 .saga-book-cover,
 .pulp-book-cover {
+
     aspect-ratio: 2 / 3;
+
     background: var(--black);
-    border: 1px solid rgba(232, 225, 212, 0.12);
+
+    border: 1px solid
+        rgba(232, 225, 212, 0.12);
+
 }
+
 
 .saga-book-info,
 .pulp-book-info {
+
     padding: 25px;
+
 }
+
 
 .saga-book-info span,
 .pulp-book-info span {
+
     color: var(--gold);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.18em;
+
 }
+
 
 .saga-book-info h3,
 .pulp-book-info h3 {
+
     margin: 12px 0;
+
     font-family: var(--font-display);
+
     font-size: 1.5rem;
+
     font-weight: 500;
+
 }
+
 
 .saga-book-info p,
 .pulp-book-info p {
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.2rem;
+
 }
+
 
 .saga-order,
 .pulp-archive {
+
     background: var(--red-dark);
+
 }
+
 
 .saga-order h2,
 .pulp-archive h2 {
+
     max-width: 800px;
+
     font-size: clamp(2.5rem, 6vw, 5rem);
+
     line-height: 1.05;
+
 }
+
+
+/* =========================================================
+   18. PULP
+   ========================================================= */
 
 .pulp-hero {
+
     background:
+
         linear-gradient(
+
             90deg,
+
             rgba(9, 9, 9, 0.98),
+
             rgba(9, 9, 9, 0.70),
+
             rgba(9, 9, 9, 0.30)
+
         ),
+
         url("../Assets/Imagens/Hero/pulp-city.webp")
+
         center / cover no-repeat;
+
 }
+
 
 .pulp-hero-content {
+
     max-width: 800px;
+
     padding-top: 120px;
+
 }
+
+
+/* =========================================================
+   19. AUTORES
+   ========================================================= */
 
 .autores-hero {
+
     background:
+
         linear-gradient(
+
             90deg,
+
             rgba(9, 9, 9, 0.98),
+
             rgba(9, 9, 9, 0.70),
+
             rgba(9, 9, 9, 0.30)
+
         ),
+
         url("../Assets/Imagens/Hero/authors-library.webp")
+
         center / cover no-repeat;
+
 }
+
 
 .authors-intro {
+
     text-align: center;
+
     background: var(--paper);
+
     color: var(--black);
+
 }
+
 
 .authors-intro .section-container {
+
     max-width: 850px;
+
 }
+
 
 .authors-intro h2 {
+
     font-size: clamp(2.5rem, 6vw, 5rem);
+
     line-height: 1.05;
+
 }
+
 
 .section-text {
+
     max-width: 700px;
+
     margin: 35px auto 0;
+
     font-family: var(--font-serif);
+
     font-size: 1.5rem;
+
 }
+
 
 .authors-section {
+
     background: var(--black);
+
 }
+
 
 .section-heading {
+
     max-width: 750px;
+
 }
+
 
 .section-heading h2 {
+
     font-size: clamp(2.5rem, 6vw, 5rem);
+
     line-height: 1.05;
+
 }
+
 
 .section-heading > p:not(.section-eyebrow) {
+
     margin-top: 25px;
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.4rem;
+
 }
+
 
 .authors-grid {
+
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 30px;
+
     margin-top: 60px;
+
 }
+
 
 .author-card {
+
     overflow: hidden;
+
     background: var(--black-light);
-    border: 1px solid rgba(232, 225, 212, 0.10);
-    transition: transform 0.35s ease, border-color 0.35s ease;
+
+    border: 1px solid
+        rgba(232, 225, 212, 0.10);
+
+    transition: transform 0.35s ease,
+                border-color 0.35s ease;
+
 }
+
 
 .author-card:hover {
+
     transform: translateY(-8px);
+
     border-color: var(--gold);
+
 }
+
 
 .author-image {
+
     aspect-ratio: 4 / 5;
+
     overflow: hidden;
+
     background: #1a1a1a;
+
 }
+
 
 .author-image img {
+
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
     transition: transform 0.5s ease;
+
 }
+
 
 .author-card:hover .author-image img {
+
     transform: scale(1.04);
+
 }
+
 
 .author-content {
+
     padding: 28px;
+
 }
+
 
 .author-label {
+
     color: var(--gold);
+
     font-family: var(--font-sans);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.18em;
+
 }
+
 
 .author-content h3 {
+
     margin: 12px 0 18px;
+
     font-family: var(--font-display);
+
     font-size: 1.5rem;
+
     font-weight: 500;
+
 }
+
 
 .author-content p:not(.author-label) {
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.25rem;
+
 }
+
 
 .author-link {
+
     display: inline-flex;
+
     align-items: center;
+
     gap: 10px;
+
     margin-top: 22px;
+
     color: var(--paper);
+
     font-family: var(--font-sans);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.12em;
+
 }
+
 
 .author-link span {
+
     transition: transform 0.3s ease;
+
 }
+
 
 .author-link:hover span {
+
     transform: translateX(5px);
+
 }
+
 
 .authors-cta {
+
     text-align: center;
+
     background: var(--red-dark);
+
 }
+
 
 .authors-cta .section-container {
+
     max-width: 700px;
+
 }
+
 
 .authors-cta h2 {
+
     margin: 15px 0 25px;
+
     font-size: clamp(2.5rem, 6vw, 5rem);
+
 }
+
 
 .authors-cta p:not(.section-eyebrow) {
+
     margin-bottom: 30px;
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.5rem;
+
 }
+
+
+/* =========================================================
+   20. FOOTER
+   ========================================================= */
 
 .site-footer {
+
     padding-top: 70px;
+
     background: var(--black);
+
 }
+
 
 .footer-content {
+
     width: min(1200px, 90%);
+
     margin: 0 auto;
+
     padding-bottom: 60px;
+
     display: flex;
+
     justify-content: space-between;
+
     gap: 40px;
+
 }
+
 
 .footer-brand h3 {
+
     font-family: var(--font-display);
+
     font-size: 1.2rem;
+
     font-weight: 500;
+
 }
+
 
 .footer-brand p {
+
     margin-top: 20px;
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.3rem;
+
 }
+
 
 .footer-links {
+
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
+
 }
+
 
 .footer-links a {
+
     color: var(--paper-dark);
+
     font-family: var(--font-sans);
+
     font-size: 0.68rem;
+
     letter-spacing: 0.12em;
+
 }
+
 
 .footer-links a:hover {
+
     color: var(--gold);
+
 }
+
 
 .footer-bottom {
+
     padding: 25px 5%;
-    border-top: 1px solid rgba(232, 225, 212, 0.15);
+
+    border-top: 1px solid
+        rgba(232, 225, 212, 0.15);
+
 }
+
 
 .footer-bottom p {
+
     color: var(--paper-dark);
+
     font-family: var(--font-sans);
+
     font-size: 0.62rem;
+
     letter-spacing: 0.08em;
+
 }
 
-@media (orientation: landscape) and (min-width: 769px) and (max-width: 1200px) {
+
+/* =========================================================
+   21. TABLET HORIZONTAL
+   ========================================================= */
+
+@media (orientation: landscape)
+       and (min-width: 769px)
+       and (max-width: 1200px) {
+
+
     .site-header {
+
         padding: 0 3%;
+
     }
+
+
     .main-nav {
+
         gap: 16px;
+
     }
+
+
     .main-nav > a,
     .submenu-toggle {
+
         font-size: 0.58rem;
+
     }
+
+
     .hero-content {
+
         padding-left: 3%;
+
     }
+
+
     .authors-grid,
     .saga-book-grid,
     .pulp-book-grid {
+
         grid-template-columns: repeat(2, 1fr);
+
     }
+
 }
 
+
+/* =========================================================
+   22. TELAS VERTICAIS
+   ========================================================= */
+
 @media (orientation: portrait) {
+
+
     .site-header {
+
         min-height: 90px;
+
     }
+
+
     .menu-toggle {
+
         display: block;
+
     }
+
+
     .main-nav {
+
         position: absolute;
+
         top: 90px;
+
         left: 0;
+
         width: 100%;
+
         display: none;
+
         flex-direction: column;
+
         align-items: stretch;
+
         gap: 0;
+
         padding: 20px 5%;
+
         background: var(--black);
-        border-bottom: 1px solid rgba(232, 225, 212, 0.15);
+
+        border-bottom: 1px solid
+            rgba(232, 225, 212, 0.15);
+
     }
+
+
     .main-nav.active {
+
         display: flex;
+
     }
+
+
     .main-nav > a,
     .submenu-toggle {
+
         width: 100%;
+
         padding: 15px 0;
+
         text-align: left;
+
     }
+
+
     .nav-item {
+
         width: 100%;
+
     }
+
+
     .submenu {
+
         position: static;
+
         width: 100%;
+
         padding: 0 0 10px 20px;
+
         border: none;
+
     }
+
+
     .submenu a {
+
         padding: 12px 0;
+
     }
+
+
     .saga-nav,
     .pulp-nav {
+
         top: 90px;
+
     }
+
+
     .saga-nav-inner,
     .pulp-nav-inner {
+
         justify-content: flex-start;
+
         overflow-x: auto;
+
         gap: 22px;
+
         padding-left: 5%;
+
         padding-right: 5%;
+
         white-space: nowrap;
+
     }
+
+
     .hero,
     .page-hero {
+
         min-height: 780px;
+
     }
+
+
     .hero-content {
+
         padding: 150px 5% 60px;
+
     }
+
+
     .saga-hero-content,
     .pulp-hero-content {
+
         padding: 170px 5% 60px;
+
     }
+
+
     .autores-hero {
+
         min-height: 650px;
+
         background-position: center center;
+
     }
+
+
     .authors-grid,
     .saga-book-grid,
     .pulp-book-grid,
     .book-grid {
+
         grid-template-columns: 1fr;
+
     }
+
+
     .author-card,
     .saga-book-card,
     .pulp-book-card,
     .book-card {
+
         max-width: 520px;
+
         margin: 0 auto;
+
     }
+
+
     .footer-content {
+
         flex-direction: column;
+
     }
+
 }
 
+
+/* =========================================================
+   23. CELULAR
+   ========================================================= */
+
 @media (max-width: 768px) {
+
+
     :root {
+
         --section-padding: 75px;
+
     }
+
+
     .site-header {
+
         min-height: 75px;
+
     }
+
+
     .main-nav {
+
         top: 75px;
+
     }
+
+
     .saga-nav,
     .pulp-nav {
+
         top: 75px;
+
     }
+
+
     .hero,
     .page-hero {
+
         min-height: 700px;
+
     }
+
+
     .hero h1,
     .page-hero h1 {
+
         font-size: clamp(2.7rem, 12vw, 4.5rem);
+
     }
+
+
     .hero-subtitle,
     .hero-description {
+
         font-size: 1.3rem;
+
     }
+
+
     .autores-hero {
+
         min-height: 620px;
+
     }
+
+
     .authors-intro h2 {
+
         font-size: clamp(2.2rem, 9vw, 3.5rem);
+
     }
+
+
     .section-text {
+
         font-size: 1.25rem;
+
     }
+
+
     .section-heading h2 {
+
         font-size: clamp(2.2rem, 9vw, 3.8rem);
+
     }
+
+
     .author-content {
+
         padding: 22px;
+
     }
+
+
     .authors-cta h2 {
+
         font-size: clamp(2.2rem, 9vw, 3.8rem);
+
     }
+
+
     .footer-content {
+
         width: 90%;
+
     }
+
 }
+
+/* =========================================================
+   24. ARQUIVO
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .arquivo-hero {
+
     background:
+
         linear-gradient(
+
             90deg,
+
             rgba(9, 9, 9, 0.98),
+
             rgba(9, 9, 9, 0.72),
+
             rgba(9, 9, 9, 0.30)
+
         ),
+
         url("../Assets/Imagens/Hero/arquivo.webp")
+
         center / cover no-repeat;
+
 }
+
+
+/* =========================================================
+   INTRODUÇÃO
+   ========================================================= */
 
 .arquivo-intro {
+
     color: var(--black);
+
     background: var(--paper);
+
 }
+
 
 .arquivo-intro h2 {
+
     max-width: 800px;
+
     font-size: clamp(2.5rem, 6vw, 5.5rem);
+
     line-height: 1.05;
+
 }
+
 
 .arquivo-text {
+
     max-width: 700px;
+
     margin-top: 55px;
+
 }
+
 
 .arquivo-text p {
+
     margin-bottom: 22px;
+
     font-family: var(--font-serif);
+
     font-size: clamp(1.4rem, 2.5vw, 2rem);
+
 }
+
+
+/* =========================================================
+   CATÁLOGO
+   ========================================================= */
 
 .arquivo-catalogo {
+
     background: var(--black-soft);
+
 }
+
 
 .arquivo-grid {
+
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 30px;
+
     margin-top: 60px;
+
 }
+
 
 .arquivo-card {
+
     min-height: 420px;
+
     display: flex;
+
     align-items: flex-end;
+
     background: var(--black-light);
-    border: 1px solid rgba(232, 225, 212, 0.10);
-    transition: transform 0.35s ease, border-color 0.35s ease;
+
+    border: 1px solid
+        rgba(232, 225, 212, 0.10);
+
+    transition:
+
+        transform 0.35s ease,
+
+        border-color 0.35s ease;
+
 }
+
 
 .arquivo-card:hover {
+
     transform: translateY(-8px);
+
     border-color: var(--gold);
+
 }
+
 
 .arquivo-card-content {
+
     padding: 32px;
+
 }
+
 
 .arquivo-card-content span {
+
     color: var(--gold);
+
     font-family: var(--font-sans);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.18em;
+
 }
+
 
 .arquivo-card-content h3 {
+
     margin: 18px 0;
+
     font-family: var(--font-display);
+
     font-size: 1.8rem;
+
     font-weight: 500;
+
     line-height: 1.15;
+
 }
+
 
 .arquivo-card-content p {
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.3rem;
+
 }
+
 
 .arquivo-card-content strong {
+
     display: inline-block;
+
     margin-top: 28px;
+
     color: var(--paper);
+
     font-family: var(--font-sans);
+
     font-size: 0.65rem;
+
     font-weight: 500;
+
     letter-spacing: 0.12em;
+
 }
+
+
+/* =========================================================
+   MEMÓRIA
+   ========================================================= */
 
 .arquivo-memoria {
+
     background: var(--red-dark);
+
 }
+
 
 .arquivo-memoria h2 {
+
     max-width: 800px;
+
     font-size: clamp(2.5rem, 6vw, 5rem);
+
     line-height: 1.05;
+
 }
+
 
 .arquivo-memoria p:not(.section-eyebrow) {
+
     max-width: 650px;
+
     margin-top: 30px;
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.6rem;
+
 }
 
-@media (orientation: landscape) and (min-width: 769px) and (max-width: 1200px) {
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (orientation: landscape)
+       and (min-width: 769px)
+       and (max-width: 1200px) {
+
+
     .arquivo-grid {
+
         grid-template-columns: repeat(2, 1fr);
+
     }
+
 }
+
 
 @media (orientation: portrait) {
+
+
     .arquivo-grid {
+
         grid-template-columns: 1fr;
+
     }
+
+
     .arquivo-card {
+
         max-width: 520px;
+
         margin: 0 auto;
+
     }
+
 }
 
+
 @media (max-width: 768px) {
+
+
     .arquivo-card-content {
+
         padding: 25px;
+
     }
+
+
     .arquivo-card-content h3 {
+
         font-size: 1.5rem;
+
     }
+
+
     .arquivo-card-content p {
+
         font-size: 1.2rem;
+
     }
+
 }
+
+/* =========================================================
+   25. A FORJA
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .forja-hero {
+
     background:
+
         linear-gradient(
+
             90deg,
+
             rgba(9, 9, 9, 0.98),
+
             rgba(9, 9, 9, 0.72),
+
             rgba(9, 9, 9, 0.30)
+
         ),
+
         url("../Assets/Imagens/Hero/forja.webp")
+
         center / cover no-repeat;
+
 }
+
+
+/* =========================================================
+   NAVEGAÇÃO INTERNA
+   ========================================================= */
 
 .forja-nav {
+
     position: absolute;
+
     top: 90px;
+
     left: 0;
+
     width: 100%;
+
     z-index: 20;
-    border-bottom: 1px solid rgba(232, 225, 212, 0.15);
+
+    border-bottom: 1px solid
+        rgba(232, 225, 212, 0.15);
+
 }
+
 
 .forja-nav-inner {
+
     display: flex;
+
     justify-content: flex-end;
+
     gap: 30px;
+
     padding: 18px 5%;
+
 }
+
 
 .forja-nav a {
+
     color: var(--paper-dark);
+
     font-family: var(--font-sans);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.15em;
+
     text-transform: uppercase;
+
     white-space: nowrap;
+
 }
+
 
 .forja-nav a:hover {
+
     color: var(--gold);
+
 }
+
+
+/* =========================================================
+   INTRODUÇÃO
+   ========================================================= */
 
 .forja-intro {
+
     color: var(--black);
+
     background: var(--paper);
+
 }
+
 
 .forja-intro h2 {
+
     max-width: 850px;
+
     font-size: clamp(2.5rem, 6vw, 5rem);
+
     line-height: 1.05;
+
 }
+
 
 .forja-text {
+
     max-width: 700px;
+
     margin-top: 55px;
+
 }
+
 
 .forja-text p {
+
     margin-bottom: 22px;
+
     font-family: var(--font-serif);
+
     font-size: clamp(1.4rem, 2.5vw, 2rem);
+
 }
+
 
 .forja-text .highlight {
+
     color: var(--red);
+
 }
+
+
+/* =========================================================
+   PROJETOS EM DESENVOLVIMENTO
+   ========================================================= */
 
 .forja-projetos {
+
     background: var(--black-soft);
+
 }
+
 
 .forja-grid {
+
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 30px;
+
     margin-top: 60px;
+
 }
+
 
 .forja-card {
+
     min-height: 390px;
+
     padding: 30px;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
+
     background: var(--black-light);
-    border: 1px solid rgba(232, 225, 212, 0.10);
-    transition: transform 0.35s ease, border-color 0.35s ease;
+
+    border: 1px solid
+        rgba(232, 225, 212, 0.10);
+
+    transition:
+
+        transform 0.35s ease,
+
+        border-color 0.35s ease;
+
 }
+
 
 .forja-card:hover {
+
     transform: translateY(-8px);
+
     border-color: var(--gold);
+
 }
+
 
 .forja-card-number {
+
     color: var(--gold);
+
     font-family: var(--font-display);
+
     font-size: 2rem;
+
 }
+
 
 .forja-card-content span {
+
     color: var(--gold);
+
     font-family: var(--font-sans);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.18em;
+
 }
+
 
 .forja-card-content h3 {
+
     margin: 15px 0;
+
     font-family: var(--font-display);
+
     font-size: 1.7rem;
+
     font-weight: 500;
+
 }
+
 
 .forja-card-content p {
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.3rem;
+
 }
+
+
+/* =========================================================
+   PROCESSO CRIATIVO
+   ========================================================= */
 
 .forja-processo {
+
     background: var(--black);
+
 }
+
 
 .forja-processo h2 {
+
     max-width: 800px;
+
     margin-top: 15px;
+
     font-size: clamp(2.5rem, 6vw, 5rem);
+
     line-height: 1.05;
+
 }
+
 
 .processo-grid {
+
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 30px;
+
     margin-top: 70px;
+
 }
+
 
 .processo-item {
+
     padding-top: 25px;
+
     border-top: 1px solid var(--gold);
+
 }
+
 
 .processo-item > span {
+
     color: var(--gold);
+
     font-family: var(--font-display);
+
     font-size: 1.5rem;
+
 }
+
 
 .processo-item h3 {
+
     margin: 20px 0 15px;
+
     font-family: var(--font-display);
+
     font-size: 1.3rem;
+
     font-weight: 500;
+
 }
+
 
 .processo-item p {
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.25rem;
+
 }
+
+
+/* =========================================================
+   CHAMADA FINAL
+   ========================================================= */
 
 .forja-cta {
+
     background: var(--red-dark);
+
 }
+
 
 .forja-cta h2 {
+
     max-width: 800px;
+
     font-size: clamp(2.5rem, 6vw, 5rem);
+
     line-height: 1.05;
+
 }
+
 
 .forja-cta p:not(.section-eyebrow) {
+
     max-width: 650px;
+
     margin-top: 30px;
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.6rem;
+
 }
 
-@media (orientation: landscape) and (min-width: 769px) and (max-width: 1200px) {
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET HORIZONTAL
+   ========================================================= */
+
+@media (orientation: landscape)
+       and (min-width: 769px)
+       and (max-width: 1200px) {
+
+
     .forja-grid {
+
         grid-template-columns: repeat(2, 1fr);
+
     }
+
+
     .processo-grid {
+
         grid-template-columns: repeat(2, 1fr);
+
     }
+
 }
+
+
+/* =========================================================
+   RESPONSIVIDADE — TELAS VERTICAIS
+   ========================================================= */
 
 @media (orientation: portrait) {
+
+
     .forja-nav-inner {
+
         justify-content: flex-start;
+
         overflow-x: auto;
+
         gap: 22px;
+
         white-space: nowrap;
+
     }
+
+
     .forja-grid {
+
         grid-template-columns: 1fr;
+
     }
+
+
     .processo-grid {
+
         grid-template-columns: 1fr;
+
     }
+
+
     .forja-card {
+
         max-width: 520px;
+
         margin: 0 auto;
+
     }
+
 }
 
+
+/* =========================================================
+   RESPONSIVIDADE — CELULAR
+   ========================================================= */
+
 @media (max-width: 768px) {
+
+
     .forja-nav {
+
         top: 75px;
+
     }
+
+
     .forja-nav-inner {
+
         padding-left: 5%;
+
         padding-right: 5%;
+
     }
+
+
     .forja-card {
+
         min-height: 330px;
+
     }
+
+
     .processo-grid {
+
         gap: 45px;
+
     }
+
 }
+
+/* =========================================
+   CONTATO
+========================================= */
 
 .contato-hero {
     background:
@@ -1291,310 +2704,588 @@ button {
         center / cover no-repeat;
 }
 
+
 .contact-section {
     padding: var(--section-padding) 6%;
     background: var(--black);
 }
 
+
 .contact-container {
     max-width: 1100px;
     margin: 0 auto;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 90px;
+
     align-items: center;
 }
+
 
 .contact-intro h2,
 .story-contact-container h2 {
+
     margin: 20px 0;
+
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3.5rem);
+
     color: var(--paper);
+
 }
+
 
 .contact-intro p:not(.eyebrow),
 .story-contact-container p:not(.eyebrow) {
+
     max-width: 520px;
+
     font-family: var(--font-serif);
     font-size: 1.35rem;
     line-height: 1.7;
+
     color: var(--paper-dark);
+
 }
 
+
 .archive-form {
+
     display: flex;
     flex-direction: column;
     gap: 24px;
+
     padding: 42px;
+
     border: 1px solid rgba(185, 154, 95, 0.35);
+
     background: var(--black-soft);
+
 }
 
+
 .form-group {
+
     display: flex;
     flex-direction: column;
     gap: 10px;
+
 }
 
+
 .form-group label {
+
     font-family: var(--font-sans);
     font-size: 0.72rem;
     letter-spacing: 0.16em;
+
     color: var(--gold);
+
 }
+
 
 .form-group input {
+
     width: 100%;
     box-sizing: border-box;
+
     padding: 16px 18px;
+
     border: 1px solid var(--paper-dark);
+
     background: transparent;
+
     font-family: var(--font-sans);
     font-size: 0.9rem;
+
     color: var(--paper);
+
     outline: none;
+
     transition: border-color 0.3s ease;
+
 }
+
 
 .form-group input::placeholder {
+
     color: var(--paper-dark);
     opacity: 0.65;
+
 }
+
 
 .form-group input:focus {
+
     border-color: var(--gold);
+
 }
 
+
 .form-button {
+
     margin-top: 10px;
+
     padding: 17px 24px;
+
     border: 1px solid var(--gold);
+
     background: var(--gold);
+
     font-family: var(--font-sans);
     font-size: 0.75rem;
     font-weight: 600;
+
     letter-spacing: 0.12em;
+
     color: var(--black);
+
     cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+
 }
+
 
 .form-button:hover {
+
     background: transparent;
     color: var(--gold);
+
 }
 
+
 .form-notice {
+
     margin: 0;
+
     font-family: var(--font-sans);
     font-size: 0.68rem;
     line-height: 1.6;
+
     color: var(--paper-dark);
+
     opacity: 0.75;
+
 }
+
 
 .story-contact-section {
+
     padding: var(--section-padding) 6%;
+
     background: var(--black-light);
+
     text-align: center;
+
 }
+
 
 .story-contact-container {
+
     max-width: 720px;
     margin: 0 auto;
+
 }
+
 
 .story-contact-container p:not(.eyebrow) {
+
     margin-left: auto;
     margin-right: auto;
+
 }
 
+
 .text-link {
+
     display: inline-flex;
     gap: 12px;
+
     margin-top: 30px;
+
     font-family: var(--font-sans);
     font-size: 0.75rem;
     letter-spacing: 0.14em;
+
     color: var(--gold);
+
     text-decoration: none;
+
 }
+
 
 .text-link span {
+
     transition: transform 0.3s ease;
+
 }
+
 
 .text-link:hover span {
+
     transform: translateX(6px);
+
 }
 
+
+
+/* =========================================
+   CONTATO — MOBILE
+========================================= */
+
 @media (max-width: 768px) {
+
+
     .contact-container {
+
         grid-template-columns: 1fr;
         gap: 50px;
+
     }
+
+
     .archive-form {
+
         padding: 28px 22px;
+
     }
+
+
     .contact-intro h2,
     .story-contact-container h2 {
+
         font-size: 2.1rem;
+
     }
+
+
     .contact-intro p:not(.eyebrow),
     .story-contact-container p:not(.eyebrow) {
+
         font-size: 1.2rem;
+
     }
+
 }
+
+/* =========================================================
+   CONTATO — CORREÇÃO DE COMPATIBILIDADE
+   ========================================================= */
+
+
+/* =========================================================
+   HEADER INTERNO
+   ========================================================= */
 
 .site-header .header-inner {
+
     width: min(1200px, 90%);
+
     min-height: 90px;
+
     margin: 0 auto;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
 }
+
 
 .site-header .logo {
+
     display: flex;
+
     flex-direction: column;
+
     flex-shrink: 0;
+
 }
+
 
 .logo-main {
+
     font-family: var(--font-display);
+
     font-size: 1.15rem;
+
     line-height: 1;
+
     letter-spacing: 0.12em;
+
 }
+
 
 .logo-sub {
+
     margin-top: 7px;
+
     color: var(--gold);
+
     font-family: var(--font-sans);
+
     font-size: 0.6rem;
+
     letter-spacing: 0.45em;
+
 }
+
+
+/* =========================================================
+   LINKS DOS SUBMENUS
+   ========================================================= */
 
 .nav-link {
+
     background: none;
+
     border: none;
+
     cursor: pointer;
+
     color: var(--paper-dark);
+
     font-family: var(--font-sans);
+
     font-size: 0.65rem;
+
     letter-spacing: 0.10em;
+
     text-transform: uppercase;
+
     white-space: nowrap;
+
 }
+
 
 .nav-link:hover {
+
     color: var(--gold);
+
 }
+
 
 .nav-link span {
+
     margin-left: 6px;
+
     color: var(--gold);
+
 }
+
+
+/* =========================================================
+   HERO DO CONTATO
+   ========================================================= */
 
 .page-hero-content {
+
     position: relative;
+
     z-index: 2;
+
     width: min(1200px, 90%);
+
     margin: 0 auto;
+
     padding-top: 90px;
+
 }
+
 
 .page-hero-content h1 {
+
     font-family: var(--font-display);
+
     font-size: clamp(3rem, 8vw, 7rem);
+
     font-weight: 500;
+
     line-height: 1.05;
+
     letter-spacing: 0.03em;
+
 }
+
 
 .page-hero-content > p:last-child {
+
     max-width: 650px;
+
     margin-top: 30px;
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: clamp(1.4rem, 2.5vw, 2rem);
+
     line-height: 1.45;
+
 }
+
+
+/* =========================================================
+   FOOTER DO CONTATO
+   ========================================================= */
 
 .footer-inner {
+
     width: min(1200px, 90%);
+
     margin: 0 auto;
+
     padding: 70px 0 40px;
+
     display: grid;
+
     grid-template-columns: 1fr auto auto;
+
     align-items: end;
+
     gap: 50px;
+
 }
+
 
 .footer-brand {
+
     display: flex;
+
     flex-direction: column;
+
 }
+
 
 .footer-brand > span {
+
     font-family: var(--font-display);
+
     font-size: 1.2rem;
+
     font-weight: 500;
+
 }
+
 
 .footer-brand small {
+
     max-width: 300px;
+
     margin-top: 15px;
+
     color: var(--paper-dark);
+
     font-family: var(--font-serif);
+
     font-size: 1.2rem;
+
 }
+
 
 .footer-copy {
+
     color: var(--paper-dark);
+
     font-family: var(--font-sans);
+
     font-size: 0.62rem;
+
     letter-spacing: 0.08em;
+
 }
+
+
+/* =========================================================
+   CONTATO — RESPONSIVIDADE
+   ========================================================= */
 
 @media (orientation: portrait) {
+
+
     .site-header .header-inner {
+
         min-height: 90px;
+
     }
+
+
     .page-hero-content {
+
         padding-top: 150px;
+
         padding-bottom: 60px;
+
     }
+
+
     .footer-inner {
+
         grid-template-columns: 1fr;
+
         gap: 30px;
+
     }
+
 }
 
+
 @media (max-width: 768px) {
+
+
     .site-header .header-inner {
+
         min-height: 75px;
+
     }
+
+
     .page-hero-content {
+
         width: 90%;
+
         padding-top: 140px;
+
         padding-bottom: 60px;
+
     }
+
+
     .page-hero-content h1 {
+
         font-size: clamp(2.7rem, 12vw, 4.5rem);
+
     }
+
+
     .contact-section {
+
         padding: 75px 5%;
+
     }
+
+
     .story-contact-section {
+
         padding: 75px 5%;
+
     }
+
+
     .footer-inner {
+
         width: 90%;
+0
         padding-top: 55px;
+
     }
+
 }
 
 /* =========================================================
@@ -1602,47 +3293,85 @@ button {
    ========================================================= */
 
 .arquivo-hero {
+
     min-height: 650px;
+
     background-image:
+
         linear-gradient(
             rgba(9, 9, 9, 0.25),
             rgba(9, 9, 9, 0.25)
         ),
+
         url("../Assets/Imagens/Hero/arquivo.webp");
+
     background-size: cover;
+
     background-position: center center;
+
     background-repeat: no-repeat;
+
 }
 
+
+/* =========================================================
+   TABLET VERTICAL
+   ========================================================= */
+
 @media (max-width: 768px) {
+
     .arquivo-hero {
+
         min-height: 620px;
+
         background-position: center center;
+
     }
+
 }
+
+
 
 /* =========================================================
    HERO — FORJA
    ========================================================= */
 
 .forja-hero {
+
     min-height: 650px;
+
     background-image:
+
         linear-gradient(
             rgba(9, 9, 9, 0.20),
             rgba(9, 9, 9, 0.20)
         ),
+
         url("../Assets/Imagens/Hero/forja.webp");
+
     background-size: cover;
+
     background-position: center center;
+
     background-repeat: no-repeat;
+
 }
 
+
+/* =========================================================
+   TABLET VERTICAL
+   ========================================================= */
+
 @media (max-width: 768px) {
+
     .forja-hero {
+
         min-height: 620px;
+
         background-position: center center;
+
     }
+
 }
 
 /* =========================================================
@@ -1650,45 +3379,82 @@ button {
    ========================================================= */
 
 .agora-hero {
+
     min-height: 650px;
+
     background-image:
+
         linear-gradient(
             rgba(9, 9, 9, 0.25),
             rgba(9, 9, 9, 0.25)
         ),
+
         url("../Assets/Imagens/Hero/agora.webp");
+
     background-size: cover;
+
     background-position: center center;
+
     background-repeat: no-repeat;
+
 }
 
+
+/* =========================================================
+   TABLET VERTICAL
+   ========================================================= */
+
 @media (max-width: 768px) {
+
     .agora-hero {
+
         min-height: 620px;
+
         background-position: center center;
+
     }
+
 }
+
 
 /* =========================================================
    HERO — SOBRE
    ========================================================= */
 
 .sobre-hero {
+
     min-height: 650px;
+
     background-image:
+
         linear-gradient(
             rgba(9, 9, 9, 0.35),
             rgba(9, 9, 9, 0.35)
         ),
+
         url("../Assets/Imagens/Hero/sobre.webp");
+
     background-size: cover;
+
     background-position: center center;
+
     background-repeat: no-repeat;
+
 }
 
+
+/* =========================================================
+   TABLET VERTICAL
+   ========================================================= */
+
 @media (max-width: 768px) {
+
     .sobre-hero {
+
         min-height: 620px;
+
         background-position: center center;
+
     }
+
 }
